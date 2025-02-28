@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'gradient': 'gradient 8s linear infinite',
+          },
+          keyframes: {
+            gradient: {
+              '0%, 100%': {
+                'background-size': '200% 200%',
+                'background-position': 'left center'
+              },
+              '50%': {
+                'background-size': '200% 200%',
+                'background-position': 'right center'
+              },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-500 animate-gradient">
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <!-- Login Container -->
+    <div class="w-full max-w-md">
+      <!-- Card -->
+      <div class="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl p-8 space-y-6 border border-white/20 transform transition-all hover:scale-[1.01]">
+        <!-- Header -->
+        <div class="text-center space-y-2">
+          <h1 class="text-3xl font-bold text-gray-900">Welcome Back</h1>
+          <p class="text-gray-600">Sign in to your account</p>
+        </div>
+
+        <!-- Form -->
+        <form id="loginForm" class="space-y-4">
+          <!-- Username -->
+          <div class="space-y-2">
+            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+            <input type="text" id="username" name="username" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/50 backdrop-blur-sm"
+              placeholder="Enter your username">
+            <p id="usernameError" class="text-red-500 text-sm hidden">Username must be at least 3 characters</p>
+          </div>
+
+          <!-- Password -->
+          <div class="space-y-2">
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <div class="relative">
+              <input type="password" id="password" name="password"
+                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white/50 backdrop-blur-sm"
+                placeholder="Enter your password">
+              <button type="button" id="togglePassword" 
+                class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </button>
+            </div>
+            <p id="passwordError" class="text-red-500 text-sm hidden">Password must be at least 6 characters</p>
+          </div>
+
+          <!-- Remember Me & Forgot Password -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input type="checkbox" id="remember" name="remember"
+                class="h-4 w-4 text-blue-600 rounded border-gray-300">
+              <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+            </div>
+            <button type="button" class="text-sm text-blue-600 hover:text-blue-800">Forgot password?</button>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit"
+            class="w-full bg-blue-600 text-white rounded-lg px-4 py-2 font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform transition-all hover:scale-[1.02]">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
